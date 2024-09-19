@@ -1,0 +1,19 @@
+<!-- machine_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Добавить новую машину</title>
+    <link rel="stylesheet" href="{% static 'machines/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Добавить новую машину</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'machine_list' %}">Назад к списку машин</a>
+  </body>
+</html>

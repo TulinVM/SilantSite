@@ -1,0 +1,47 @@
+<!-- machine_list.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список машин</title>
+    <link rel="stylesheet" href="{% static 'machines/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Список машин</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Зав. № машины</th>
+          <th>Модель техники</th>
+          <th>Модель двигателя</th>
+          <th>Дата отгрузки с завода</th>
+          <th>Дата доставки</th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for machine in object_list %}
+        <!-- Добавьте цикл -->
+        <tr>
+          <td>{{ machine.serial_number }}</td>
+          <td>{{ machine.equipment_model }}</td>
+          <td>{{ machine.engine_model }}</td>
+          <td>{{ machine.shipment_date }}</td>
+          <td>{{ machine.delivery_date }}</td>
+          <td>
+            <a href="{% url 'machine_detail' machine.pk %}">Просмотр</a> |
+            <a href="{% url 'machine_update' machine.pk %}">Редактировать</a> |
+            <a href="{% url 'machine_delete' machine.pk %}">Удалить</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p><a href="{% url 'machine_create' %}">Добавить новую машину</a></p>
+    <p><a href="{% url 'home' %}">Начальная страница</a></p>
+    <p><a href="{% url 'logout' %}">Выход пользователя</a></p>
+  </body>
+</html>

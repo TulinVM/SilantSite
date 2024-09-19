@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'assets/img/Logotype RGB 1.jpg' %}"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+    {% block indexHead %}{% endblock indexHead %}
+  </head>
+
+  <header>
+    <div>
+      <img
+        class="logo"
+        src="{% static 'assets/img/photo.svg' %}"
+        alt="indexLogo"
+      />
+    </div>
+
+    <div class="headerInfo">
+      <div>+7-8352-20-12-09, telegram</div>
+      <div class="headerInfoText">
+        Электронная сервисная книжка "Мой Силант"
+      </div>
+    </div>
+
+    <hgroup>
+      {% if not request.user.is_authenticated %}
+      <a href="{% url 'login' %}"
+        ><button class="headerAuthorizationButton">Войти</button></a
+      >
+      {% else %}
+      <a href="{% url 'logout' %}"
+        ><button class="headerAuthorizationButton">Выйти</button></a
+      >
+      {% endif %}
+    </hgroup>
+  </header>
+
+  <body>
+    {% block user %}{% endblock user %}
+    <a></a>
+    {% block filter %}{% endblock filter %}
+    <a></a>
+    {% block index %}{% endblock index %}
+    <a></a>
+    {% block mainPage %}{% endblock mainPage %}
+    <a></a>
+    {% block pagination %}{% endblock pagination %}
+    <a></a>
+  </body>
+  <main>
+      {% block content %}
+      <!-- Базовое содержимое (если есть) -->
+      {% endblock %}
+    </main>
+  <footer>
+    <div>+7-8352-20-12-09, telegram</div>
+    <div>"Мой Силант" 2024</div>
+  </footer>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+<!-- Загрузить библиотеку static -->
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>logout - 1</title>
+    <link rel="stylesheet" href="{% static 'machines/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Добро пожаловать на сервис "Силант"- silant_service User=</h1>
+    <h2>Чебоксарский завод силовых агрегатов (ЧЗСА)</h2>
+    <p>Отслеживайте состояние погрузчиков и техническое обслуживание.</p>
+    <a href="{% url 'machine_list' %}">Список машин</a>
+    <p><a href="{% url 'logout' %}">Выход пользователя</a></p>
+    <header>
+      <!-- Ваш заголовок здесь -->
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Базовое содержимое (если есть) -->
+      {% endblock %}
+    </main>
+    {% block content %}
+    <h2>Вы вышли из системы</h2>
+    {% endblock %}
+  </body>
+</html>

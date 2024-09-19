@@ -1,0 +1,22 @@
+{% extends "silant_service/home.html" %}
+
+<a></a>
+{% block title %}Вход{% endblock %}
+<a></a>
+{% block content %}
+<a></a>
+<h2>Вход на сайт</h2>
+{% if user.is_authenticated %}
+<p>Вы уже выполнили вход.</p>
+<p><a href="{% url 'machine_list' %}">Список машин</a></p>
+<p><a href="{% url 'maintenance_list' %}">Техническое обслуживание машин</a></p>
+<p><a href="{% url 'complaint_list' %}">Рекламации</a></p>
+<p><a href="{% url 'logout' %}">Выход пользователя</a></p>
+
+{% else %}
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="hidden" name="next" value="{{ next }}" />
+  <button type="submit">Войти</button>
+</form>
+{% endif %} {% endblock %}

@@ -1,0 +1,16 @@
+<!-- Модель ТО (Техническое обслуживание) -->
+<!-- machine_form.html -->
+{% extends "silant_service/home.html" %} {% load static %} {% block title %}ТО
+форма{% endblock %} {% block content %}
+
+<body>
+  <h1>ТО форма</h1>
+  <form method="post">
+    {% csrf_token %} {{ form.as_ul }}
+    <button type="submit">Сохранить</button>
+  </form>
+  <a href="{% url 'maintenance_list' %}">Назад к списку машин</a>
+</body>
+<a></a>
+<div></div>
+{% endblock %}

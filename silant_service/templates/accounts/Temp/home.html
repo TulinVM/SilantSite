@@ -1,0 +1,18 @@
+<!-- templates/silant_service/home.html -->
+{% load static %}
+<!-- Загрузить библиотеку static -->
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная страница Machins</title>
+    <link rel="stylesheet" href="{% static 'machines/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Добро пожаловать на сервис "Силант"- Machins1</h1>
+    <h2>Чебоксарский завод силовых агрегатов (ЧЗСА)</h2>
+    <p>Отслеживайте состояние погрузчиков и техническое обслуживание.</p>
+    <a href="{% url 'accounts.urls' %}">Список машин</a>
+  </body>
+</html>

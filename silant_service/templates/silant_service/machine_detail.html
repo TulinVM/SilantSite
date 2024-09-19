@@ -1,0 +1,22 @@
+<!-- machine_detail.html -->
+{% extends "silant_service/home.html" %}
+
+<a></a>
+{% block title %}Детали машины:{% endblock %}
+<a></a>
+{% block content %}
+
+<body>
+  <h1>Детали машины: {{ object.serial_number }}</h1>
+  <ul>
+    <li>Модель техники: {{ object.equipment_model }}</li>
+    <li>Модель двигателя: {{ object.engine_model }}</li>
+    <li>Зав. № двигателя: {{ object.engine_serial }}</li>
+    <li>Дата отгрузки с завода: {{ object.delivery_date }}</li>
+    <!-- Дополнительно выводите все необходимые поля -->
+  </ul>
+  <a href="{% url 'machine_update' object.pk %}">Редактировать</a> |
+  <a href="{% url 'machine_delete' object.pk %}">Удалить</a> |
+  <a href="{% url 'machine_list' %}">Назад к списку машин</a>
+</body>
+{% endblock %}

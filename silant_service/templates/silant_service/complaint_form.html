@@ -1,0 +1,17 @@
+<!-- machine_form.html -->
+
+{% extends "silant_service/home.html" %} {% load static %}
+
+<a></a>
+{% block title %}Рекламации{% endblock %}
+<a></a>
+{% block content %}
+<body>
+  <h1>Рекламации</h1>
+  <form method="post">
+    {% csrf_token %} {{ form.as_ul }}
+    <button type="submit">Сохранить</button>
+  </form>
+  <a href="{% url 'maintenance_list' %}">Назад к списку машин</a>
+</body>
+{% endblock %}
